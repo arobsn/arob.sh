@@ -175,6 +175,9 @@ importers:
       vitepress:
         specifier: 2.0.0-alpha.20
         version: 2.0.0-alpha.20(@types/node@26.6.3)(postcss@8.5.28)(typescript@7.0.2)
+      vue:
+        specifier: ^3.5.43
+        version: 3.5.43(typescript@7.0.2)
 
 packages:
 
