@@ -20,9 +20,9 @@ export default defineConfig<ThemeConfig>({
     handle: "arobsn",
     links: [
       { text: "email", href: "mailto:hi@arob.sh" },
+      { text: "telegram", href: "https://t.me/arobsn" },
       { text: "github", href: "https://github.com/arobsn" },
       { text: "x", href: "https://x.com/Alisovsky" },
-      { text: "telegram", href: "https://t.me/arobsn" },
     ],
   },
 

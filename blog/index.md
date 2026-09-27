@@ -3,13 +3,16 @@ layout: home
 
 projects:
   - name: Nautilus Wallet
-    description: A crypto wallet for Ergo Platform
+    description: Browser wallet and dApp connector for Ergo
     url: https://github.com/nautls/nautilus-wallet
+  - name: Ergo Ledger App
+    description: Ergo support for Ledger hardware wallets
+    url: https://github.com/ergoplatform/ledger-app-ergo
   - name: Fleet SDK
-    description: A fast and pure JS Ergo Platform SDK
+    description: Fast, lightweight TypeScript SDK for Ergo
     url: https://github.com/fleet-sdk/fleet
   - name: Machina Finance
-    description: A pure-UTxO and non-custodial order book DEX
+    description: Non-custodial, UTxO-native order book DEX
     url: https://github.com/machinafi/sdk
 ---
 
