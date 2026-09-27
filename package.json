@@ -4,8 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "vitepress dev",
+    "dev": "__VITE_ADDITIONAL_SERVER_ALLOWED_HOSTS=.trycloudflare.com vitepress dev",
     "build": "vitepress build",
     "preview": "vitepress preview",
     "typecheck": "tsc -b"

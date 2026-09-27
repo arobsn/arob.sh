@@ -19,8 +19,10 @@ export default defineConfig<ThemeConfig>({
   themeConfig: {
     handle: "arobsn",
     links: [
+      { text: "email", href: "mailto:hi@arob.sh" },
       { text: "github", href: "https://github.com/arobsn" },
       { text: "x", href: "https://x.com/Alisovsky" },
+      { text: "telegram", href: "https://t.me/arobsn" },
     ],
   },
 
@@ -35,5 +37,14 @@ export default defineConfig<ThemeConfig>({
       ["meta", { property: "og:title", content: title }],
       ["meta", { name: "twitter:card", content: "summary" }],
     );
+  },
+
+  transformHead({ assets }) {
+    const font = assets.find((file) => /lora-latin-wght-normal\.[\w-]+\.woff2$/.test(file));
+    if (!font) return;
+
+    return [
+      ["link", { rel: "preload", href: font, as: "font", type: "font/woff2", crossorigin: "" }],
+    ];
   },
 });
