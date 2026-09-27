@@ -58,9 +58,9 @@ const handle = (href: string) =>
       </section>
     </aside>
 
-    <section class="section home-writing">
+    <section v-if="posts.length" class="section home-writing">
       <h2 class="section-title">writing</h2>
-      <ul v-if="posts.length" class="post-list">
+      <ul class="post-list">
         <li v-for="post in posts" :key="post.url">
           <a class="post-link" :href="post.url">
             <span class="post-link-head">
@@ -71,7 +71,6 @@ const handle = (href: string) =>
           </a>
         </li>
       </ul>
-      <p v-else class="muted">Nothing here yet.</p>
     </section>
   </div>
 </template>
