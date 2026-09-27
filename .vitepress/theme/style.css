@@ -116,6 +116,11 @@ a {
   }
 }
 
+.site-title {
+  margin: 0;
+  font: inherit;
+}
+
 .site-name {
   font-size: 1.2rem;
   font-weight: 600;

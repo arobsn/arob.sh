@@ -2,7 +2,7 @@
 import { useData } from "vitepress";
 import { data as posts } from "./posts.data";
 import ContactIcon from "./ContactIcon.vue";
-import { isExternal, type ThemeConfig } from "./types";
+import { contacts, isExternal } from "./site";
 
 interface Project {
   name: string;
@@ -10,12 +10,8 @@ interface Project {
   url: string;
 }
 
-const { frontmatter, theme } = useData<ThemeConfig>();
+const { frontmatter } = useData();
 const projects = (frontmatter.value.projects ?? []) as Project[];
-
-// "mailto:hi@arob.sh" -> "hi@arob.sh", "https://x.com/Alisovsky" -> "@Alisovsky"
-const handle = (href: string) =>
-  href.startsWith("mailto:") ? href.slice(7) : `@${href.split("/").filter(Boolean).pop()}`;
 </script>
 
 <template>
@@ -42,16 +38,16 @@ const handle = (href: string) =>
       <section class="aside-section aside-contacts">
         <h2 class="section-title">contact</h2>
         <ul class="aside-list">
-          <li v-for="link in theme.links" :key="link.href">
+          <li v-for="link in contacts" :key="link.href">
             <a
               class="aside-contact"
               :href="link.href"
               :target="isExternal(link.href) ? '_blank' : undefined"
               :rel="isExternal(link.href) ? 'noopener' : undefined"
-              :aria-label="`${link.text}: ${handle(link.href)}`"
+              :aria-label="`${link.name}: ${link.label}`"
             >
-              <ContactIcon :name="link.text" />
-              <span class="aside-contact-value">{{ handle(link.href) }}</span>
+              <ContactIcon :name="link.name" />
+              <span class="aside-contact-value">{{ link.label }}</span>
             </a>
           </li>
         </ul>
