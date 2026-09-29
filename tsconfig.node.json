@@ -22,5 +22,5 @@
     "noFallthroughCasesInSwitch": true,
     "noUncheckedSideEffectImports": true,
   },
-  "include": [".vitepress/config.ts"],
+  "include": [".vitepress/config.ts", ".vitepress/og.ts"],
 }

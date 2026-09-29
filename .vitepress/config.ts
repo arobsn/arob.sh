@@ -1,6 +1,7 @@
 import { writeFile } from "node:fs/promises";
 import { join } from "node:path";
 import { defineConfig, type HeadConfig } from "vitepress";
+import { OG_HEIGHT, OG_WIDTH, generateOgImages, ogImagePath } from "./og.ts";
 import { SITE_URL, accounts, contacts, isExternal } from "./theme/site.ts";
 
 const jsonLd = (data: object): HeadConfig => [
@@ -13,7 +14,7 @@ const jsonLd = (data: object): HeadConfig => [
 export default defineConfig({
   srcDir: "blog",
   cleanUrls: true,
-  appearance: false, // dark mode follows the OS via prefers-color-scheme
+  appearance: false,
   sitemap: { hostname: SITE_URL },
 
   title: "Alison Oliveira",
@@ -42,7 +43,14 @@ export default defineConfig({
       ["meta", { property: "og:title", content: title }],
       ["meta", { property: "og:description", content: description }],
       ["meta", { property: "og:site_name", content: site.title }],
-      ["meta", { name: "twitter:card", content: "summary" }],
+      [
+        "meta",
+        { property: "og:image", content: `${SITE_URL}${ogImagePath(pageData.relativePath)}` },
+      ],
+      ["meta", { property: "og:image:width", content: String(OG_WIDTH) }],
+      ["meta", { property: "og:image:height", content: String(OG_HEIGHT) }],
+      ["meta", { property: "og:image:alt", content: title }],
+      ["meta", { name: "twitter:card", content: "summary_large_image" }],
     ];
 
     if (isPost) {
@@ -93,8 +101,9 @@ export default defineConfig({
     return head;
   },
 
-  async buildEnd({ outDir }) {
+  async buildEnd(siteConfig) {
     const robots = `User-agent: *\nAllow: /\n\nSitemap: ${SITE_URL}/sitemap.xml\n`;
-    await writeFile(join(outDir, "robots.txt"), robots);
+    await writeFile(join(siteConfig.outDir, "robots.txt"), robots);
+    await generateOgImages(siteConfig);
   },
 });
