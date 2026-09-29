@@ -12,7 +12,7 @@ I wanted a small, quiet corner — somewhere to turn half-formed notes into idea
 
 ## Why now?
 
-Honestly, I'm not entirely sure. Maybe I have a little more free time these days. Maybe I wanted an excuse to spend a weekend tweaking VitePress until it looked like a blog.
+Honestly, I'm not entirely sure. Maybe I have a little more free time these days. Maybe I wanted an excuse to [spend a weekend tweaking VitePress until it looked like a blog](https://github.com/arobsn/arob.sh).
 
 But I think the real reason is simpler: I've been thinking about writing for a while, and I wanted to give it a try.
 
