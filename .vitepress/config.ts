@@ -16,6 +16,8 @@ export default defineConfig({
   cleanUrls: true,
   appearance: false,
   sitemap: { hostname: SITE_URL },
+  // keep `:name:` emoji but don't turn text like `;)` into 😉
+  markdown: { emoji: { shortcuts: {} } },
 
   title: "Alison Oliveira",
   description:

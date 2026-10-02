@@ -528,9 +528,29 @@ a {
 }
 
 .prose img {
+  display: block;
   max-width: 100%;
   height: auto;
   border-radius: 8px;
+}
+
+/* Images bleed past the text column on wide screens... */
+@media (min-width: 56rem) {
+  .prose img {
+    width: calc(100% + 4rem);
+    max-width: none;
+    margin-inline: -3rem;
+  }
+}
+
+/* ...and go edge to edge on phones, cancelling the shell's side padding. */
+@media (max-width: 40rem) {
+  .prose img {
+    width: calc(100% + 2.5rem);
+    max-width: none;
+    margin-inline: -1.25rem;
+    border-radius: 0;
+  }
 }
 
 .prose table {
