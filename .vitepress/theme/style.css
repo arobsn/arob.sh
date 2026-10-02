@@ -539,7 +539,7 @@ a {
   .prose img {
     width: calc(100% + 4rem);
     max-width: none;
-    margin-inline: -3rem;
+    margin-inline: -2rem;
   }
 }
 
